@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <iframe src=""  id="meuIframe" width="800" height="600"></iframe>
+    <script>
+
+    var iframe = document.getElementById("meuIframe");
+
+        function redirecionarParaNoticias() {
+    // Lista de URLs de sites de notícias
+    const sitesDeNoticias = [
+        "https://g1.globo.com/",
+        "https://www.tecmundo.com.br/",
+        "https://www.cnnbrasil.com.br/",
+        "https://rioclaro.sp.senai.br/cursos/18/857/cursos-tecnicos?Parent=854",
+    ];
+
+    // Índice atual no array de sites de notícias
+    let indiceAtual = 0;
+        
+    // Função para redirecionar
+    function redirecionar() {
+        
+        // Verifica se o índice está dentro dos limites do array
+        if (indiceAtual < sitesDeNoticias.length) {
+            iframe.src = sitesDeNoticias[indiceAtual];
+            indiceAtual++; // Avança para o próximo site
+        } else {
+            // Reinicia a contagem se chegou ao final do array
+            indiceAtual = 0;
+        }
+
+        // Chama a função novamente após 30 segundos
+        setTimeout(redirecionar, 30000);
+    }
+
+    // Inicializa o redirecionamento
+    redirecionar();
+    
+  
+
+
+}
+
+  function rolarIframeParaBaixo() {
+    // Rola o iframe para baixo (aumenta o valor do scrollTop)
+    iframe.contentWindow.scrollTo(0, iframe.contentWindow.scrollY + 500); // Ajuste o valor "100" conforme necessário
+    var intervalo = setInterval(rolarIframeParaBaixo, 3000);
+}
+
+// Configura um intervalo para rolar o iframe a cada 3 segundos
+
+
+// Inicia o redirecionamento quando a página é carregada
+window.addEventListener("load", redirecionarParaNoticias);
+window.addEventListener("load", rolarIframeParaBaixo,);
+
+
+    </script>
+</body>
+
+</html>

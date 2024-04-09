@@ -12,15 +12,17 @@
   <body>
 
     <div class="container-fluid">
-
+      <h4>SISTEMA DE GERENCIAMENTO MARKETING INTERNO</h4>
+      <BR></BR>
       {% for dado in tvs %}
 
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 99vw;">
         <div class="card-body">
           <h5 class="card-title">{{dado.titulo}}</h5>
-        
-          <p class="card-text">....</p>
-          <a href="{% url 'tv_detail' dado.id %}" class="card-link">Acessar Link TV</a>
+          <br>
+          <a href="{% url 'tv_detail' dado.id %}" class="btn btn-info" style="width: 90vw;">Acessar Link TV</a>
+          
+          
         </div>
       </div>
     

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Carousel com Video.js</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Video.js CSS -->
+  <link href="https://vjs.zencdn.net/7.16.0/video-js.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="video-container">
+        <video id="video1" class="video-js vjs-default-skin" autoplay controls preload="auto" width="100%" height="auto">
+          <source src="caminho/do/seu/video1.mp4" type="video/mp4">
+          <source src="caminho/do/seu/video1.webm" type="video/webm">
+          <source src="caminho/do/seu/video1.ogg" type="video/ogg">
+        </video>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="video-container">
+        <video id="video2" class="video-js vjs-default-skin" autoplay controls preload="auto" width="100%" height="auto">
+          <source src="caminho/do/seu/video2.mp4" type="video/mp4">
+          <source src="caminho/do/seu/video2.webm" type="video/webm">
+          <source src="caminho/do/seu/video2.ogg" type="video/ogg">
+        </video>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="video-container">
+        <video id="video3" class="video-js vjs-default-skin" autoplay controls preload="auto" width="100%" height="auto">
+          <source src="caminho/do/seu/video3.mp4" type="video/mp4">
+          <source src="caminho/do/seu/video3.webm" type="video/webm">
+          <source src="caminho/do/seu/video3.ogg" type="video/ogg">
+        </video>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Próximo</span>
+  </a>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Video.js JS -->
+<script src="https://vjs.zencdn.net/7.16.0/video.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var videos = document.querySelectorAll('.video-js');
+    videos.forEach(function (video) {
+      videojs(video.id, {
+        autoplay: false, // Não reproduzir automaticamente
+        controls: true, // Mostrar controles de vídeo
+        fluid: true // Tornar o vídeo responsivo
+      });
+    });
+  });
+</script>
+</body>
+</html>

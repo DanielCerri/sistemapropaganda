@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Carrossel com Imagens e Vídeos</title>
+  <!-- CSS do Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://vjs.zencdn.net/7.16.0/video-js.css" rel="stylesheet">
+  <!-- CSS do MediaElement -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.16/mediaelementplayer.css" />
+
+
+
+  <style>
+     img {
+    object-fit: fill;
+    height: 100vh;
+    width: 100%;
+  }
+
+
+  .video-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: fill;
+  } 
+ 
+
+  .loader-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .loader {
+      border: 10px solid #f3f3f3;
+      border-top: 10px solid #3498db;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      animation: spin 2s linear infinite;
+    }
+
+     
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    } 
+
+    .loading-text {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    .loader-container {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+  </style>
+
+
+
+
+</head>
+<body>
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+
+    <div class="carousel-inner">
+
+      <div class="carousel-item active" data-interval="100">
+        <!-- <h1>CARREGANDO ...</h1> -->
+        <div class="loader-container">
+          <div class="loader"></div>
+          <div class="loading-text">Carregando Mídias para a Tv!</div>
+        </div>
+      </div>
+      {% for dado in tv %}
+
+        {% if dado.tipo == 'imagem' %}
+
+          <div class="carousel-item " data-interval="{{dado.tempo}}">
+            <img src="{{ dado.caminho_completo }}" class="d-block w-100" alt="..."  >
+          </div>
+
+        {% else %}
+
+          <div class="carousel-item "  >
+
+            <div class="video-container">
+
+              <video id="video3" class="video-js vjs-default-skin" controls muted preload="auto" autoplay>
+                <source src="{{ dado.caminho_completo }}" type="video/mp4">
+                <!-- Adicione mais sources conforme necessário -->
+            </video>
+
+
+              
+            </div>
+
+
+          </div>
+
+        {% endif %}
+
+      {% endfor %}
+  </div>
+
+  </div>
+</div>
+  <!--
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Próxima</span>
+  </a>
+</div>
+  -->
+
+<!-- JavaScript do Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- JavaScript do MediaElement -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.16/mediaelement-and-player.min.js"></script>
+
+
+<script>
+  $(document).ready(function() {
+      // Inicializa o MediaElement.js em cada vídeo do carrossel
+      $('.carousel-item video').mediaelementplayer();
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      
+     $(document).ready(function(){
+     $('#carouselExampleControls').on('slid.bs.carousel', function () {
+     var activeElement = $('.carousel-item.active');
+     var video = activeElement.find('video')[0];
+      if(video) {
+        video.play();
+      }
+     });
+   });
+
+  $('video').on('play', function (e) {
+      $("#carouselExampleControls").carousel('pause');
+  });
+  $('video').on('stop pause ended', function (e) {
+      $("#carouselExampleControls").carousel();
+  });
+
+  $(document).ready(function(){
+    $(".carousel").carousel({
+      pause: "false" // Impede que a transição seja pausada quando o mouse está sobre o carrossel
+    });
+  });
+
+
+  $('#carouselExampleControls').on('slid.bs.carousel', function () {
+    // Verifica se o primeiro slide está ativo novamente após completar um ciclo
+    if ($('.carousel-item:first').hasClass('active')) {
+      location.reload(); // Recarrega a página
+    }
+  });
+
+  // var videos = document.querySelectorAll('.video-js');
+  //   videos.forEach(function (video) {
+  //     videojs(video.id, {
+  //       //autoplay: true, // Não reproduzir automaticamente
+  //       //controls: true, // Mostrar controles de vídeo
+  //       fluid: true // Tornar o vídeo responsivo
+  //     });
+  //   });
+
+      console.log("A página HTML foi completamente carregada.");
+  });
+</script>
+
+
+</body>
+</html>

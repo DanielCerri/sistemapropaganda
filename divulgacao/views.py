@@ -13,12 +13,11 @@ def tvscadastradas(request):
 
 def tv_detail(request, pk):
     tv = ArquivoMidia.objects.filter(midia_id=pk)
-    return render(request, 'tv_detail.html', {'tv': tv})
+    return render(request, 'teste.html', {'tv': tv})
 
 def tv_webm(request, pk):
     tv = ArquivoMidia.objects.filter(midia_id=pk)
     return render(request, 'tvwebm.html', {'tv': tv})
-
 
 def tv_mp4(request, pk):
     tv = ArquivoMidia.objects.filter(midia_id=pk)

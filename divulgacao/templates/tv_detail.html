@@ -95,7 +95,7 @@
 
             <div class="video-container">
               <video id="video1" class="video-js vjs-default-skin"  muted autoplay  >
-                <source src="{{ dado.caminho_completo }}" type="video/mp4">
+                <source src="{{ dado.caminho_completo }}" >
               </video>
             </div>
 
@@ -132,15 +132,15 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
       
-  //   $(document).ready(function(){
-  //   $('#carouselExampleControls').on('slid.bs.carousel', function () {
-  //     var activeElement = $('.carousel-item.active');
-  //     var video = activeElement.find('video')[0];
-  //     if(video) {
-  //       video.play();
-  //     }
-  //   });
-  // });
+     $(document).ready(function(){
+     $('#carouselExampleControls').on('slid.bs.carousel', function () {
+     var activeElement = $('.carousel-item.active');
+     var video = activeElement.find('video')[0];
+      if(video) {
+        video.play();
+      }
+     });
+   });
 
   $('video').on('play', function (e) {
       $("#carouselExampleControls").carousel('pause');

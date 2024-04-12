@@ -15,6 +15,23 @@ def tv_detail(request, pk):
     tv = ArquivoMidia.objects.filter(midia_id=pk)
     return render(request, 'tv_detail.html', {'tv': tv})
 
-def tv_detail2(request, pk):
+def tv_webm(request, pk):
     tv = ArquivoMidia.objects.filter(midia_id=pk)
-    return render(request, 'tv_detail2.html', {'tv': tv})
+    return render(request, 'tvwebm.html', {'tv': tv})
+
+
+def tv_mp4(request, pk):
+    tv = ArquivoMidia.objects.filter(midia_id=pk)
+    return render(request, 'tvmp4.html', {'tv': tv})
+
+def tv_mov(request, pk):
+    tv = ArquivoMidia.objects.filter(midia_id=pk)
+    return render(request, 'tvmov.html', {'tv': tv})
+
+def tv_mpeg(request, pk):
+    tv = ArquivoMidia.objects.filter(midia_id=pk)
+    return render(request, 'tvmpeg.html', {'tv': tv})
+
+def tv_mkv(request, pk):
+    tv = ArquivoMidia.objects.filter(midia_id=pk)
+    return render(request, 'tvmkv.html', {'tv': tv})

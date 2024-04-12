@@ -26,6 +26,10 @@ from .views import *
 urlpatterns = [
     path('', tvscadastradas),
     path('tv/<int:pk>/', tv_detail, name='tv_detail'),
-    path('teste/<int:pk>/', tv_detail2),
+    path('webm/<int:pk>/', tv_webm),
+    path('mp4/<int:pk>/', tv_mp4),
+    path('mov/<int:pk>/', tv_mov),
+    path('mpeg/<int:pk>/', tv_mpeg),
+    path('mkv/<int:pk>/', tv_mkv),
     path('tvs',tvscadastradas)
 ]

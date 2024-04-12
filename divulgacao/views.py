@@ -17,4 +17,4 @@ def tv_detail(request, pk):
 
 def tv_detail2(request, pk):
     tv = ArquivoMidia.objects.filter(midia_id=pk)
-    return render(request, 'tv_detail.html', {'tv': tv})
+    return render(request, 'tv_detail2.html', {'tv': tv})

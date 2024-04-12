@@ -94,7 +94,7 @@
           <div class="carousel-item "  >
 
             <div class="video-container">
-              <video id="video1" class="video-js vjs-default-skin"  muted   >
+              <video id="video1" class="video-js vjs-default-skin"  muted autoplay  >
                 <source src="{{ dado.caminho_completo }}" type="video/mp4">
               </video>
             </div>
@@ -132,15 +132,15 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
       
-    $(document).ready(function(){
-    $('#carouselExampleControls').on('slid.bs.carousel', function () {
-      var activeElement = $('.carousel-item.active');
-      var video = activeElement.find('video')[0];
-      if(video) {
-        video.play();
-      }
-    });
-  });
+  //   $(document).ready(function(){
+  //   $('#carouselExampleControls').on('slid.bs.carousel', function () {
+  //     var activeElement = $('.carousel-item.active');
+  //     var video = activeElement.find('video')[0];
+  //     if(video) {
+  //       video.play();
+  //     }
+  //   });
+  // });
 
   $('video').on('play', function (e) {
       $("#carouselExampleControls").carousel('pause');
@@ -176,73 +176,6 @@
   });
 </script>
 
-<script>
-  $(document).ready(function(){
-    $('#carouselExampleControls').on('slid.bs.carousel', function () {
-      var activeElement = $('.carousel-item.active');
-      var video = activeElement.find('video')[0];
-      if(video) {
-        video.play();
-      }
-    });
-  });
-
-  </script>
-
-
-<script>
-  $('video').on('play', function (e) {
-      $("#carouselExampleControls").carousel('pause');
-  });
-  $('video').on('stop pause ended', function (e) {
-      $("#carouselExampleControls").carousel();
-  });
-  </script>
-
-
-<script>
-  // Ativa a transição de slide, mesmo quando o mouse está sobre o carrossel
-  $(document).ready(function(){
-    $(".carousel").carousel({
-      pause: "false" // Impede que a transição seja pausada quando o mouse está sobre o carrossel
-    });
-  });
-</script>
-
-<!-- <script>
-  // Ouça o evento 'slid.bs.carousel' para detectar quando o último slide é exibido
-  $('#carouselExampleControls').on('slid.bs.carousel', function () {
-    // Verifique se o último slide está ativo
-    if ($('.carousel-item:last').hasClass('active')) {
-      // Recarregue a página
-      location.reload();
-    }
-  });  n USADO
-</script> -->
-
-<script>
-  $('#carouselExampleControls').on('slid.bs.carousel', function () {
-    // Verifica se o primeiro slide está ativo novamente após completar um ciclo
-    if ($('.carousel-item:first').hasClass('active')) {
-      location.reload(); // Recarrega a página
-    }
-  });
-</script>
-
-
-
-  <!-- <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var videos = document.querySelectorAll('.video-js');
-    videos.forEach(function (video) {
-      videojs(video.id, {
-        //autoplay: true, // Não reproduzir automaticamente
-        //controls: true, // Mostrar controles de vídeo
-        fluid: true // Tornar o vídeo responsivo
-      });
-    });
-  });
-</script>   -->
 
 </body>
 </html>

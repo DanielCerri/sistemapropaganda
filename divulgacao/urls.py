@@ -26,5 +26,6 @@ from .views import *
 urlpatterns = [
     path('', tvscadastradas),
     path('tv/<int:pk>/', tv_detail, name='tv_detail'),
+    path('teste/<int:pk>/', tv_detail2),
     path('tvs',tvscadastradas)
 ]

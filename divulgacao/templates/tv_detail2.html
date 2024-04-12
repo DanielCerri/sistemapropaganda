@@ -52,7 +52,7 @@
         {% else %}
 
           <div class="carousel-item "  >
-            <video   class="d-block w-100"     muted >
+            <video   class="d-block w-100"     muted  autoplay>
               <source src="{{ dado.caminho_completo }}" type="video/webm" >
             </video>
           </div>
@@ -81,8 +81,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-
-<!-- <script>
+<!-- 
+<script>
   $(document).ready(function(){
     $('#carouselExampleControls').on('slid.bs.carousel', function () {
       var activeElement = $('.carousel-item.active');
